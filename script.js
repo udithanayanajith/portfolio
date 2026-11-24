@@ -2,6 +2,16 @@
 const mobileMenu = document.querySelector('.mobile-menu');
 const themeButton = document.querySelector('.theme-toggle');
 
+const businessCardLauncher = document.querySelector('.business-card-launcher');
+const businessCardDialog = document.querySelector('#business-card-dialog');
+const businessCardClose = document.querySelector('.business-card-close');
+
+businessCardLauncher?.addEventListener('click', () => businessCardDialog?.showModal());
+businessCardClose?.addEventListener('click', () => businessCardDialog?.close());
+businessCardDialog?.addEventListener('click', event => {
+  if (event.target === businessCardDialog) businessCardDialog.close();
+});
+
 try {
   if (localStorage.getItem('uditha-theme') === 'light') document.documentElement.dataset.theme = 'light';
 } catch {}
